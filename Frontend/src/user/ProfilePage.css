@@ -1,0 +1,209 @@
+/* 🔹 Profile Container - Increased Size */
+.profile-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background: rgb(245, 242, 242);
+  border-radius: 15px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🔹 Profile Header - Increased Profile Picture */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  position: relative; /* To position the "Add Form" button */
+}
+
+.profile-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid #007bff;
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-header p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* 🔹 Status */
+.status {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.status.approved {
+  color: green;
+}
+
+.status.unverified {
+  color: red;
+}
+
+/* 🔹 Tab Navigation - Bigger Buttons */
+.tab-navigation {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #ddd;
+  padding-bottom: 8px;
+  justify-content: space-around;
+}
+
+.tab-navigation button {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  color: #555;
+}
+
+.tab-navigation button.active {
+  background: #007bff;
+  color: white;
+  font-size: 19px;
+}
+
+/* 🔹 Tab Content */
+.tab-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-content li {
+  background: #f8f9fa;
+  padding: 12px;
+  font-size: 17px;
+  margin: 8px 0;
+  border-radius: 6px;
+}
+
+/* 🔹 Send Application Button - Unique Styling */
+.application-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background 0.3s ease-in-out;
+}
+
+.application-button:hover {
+  background: #0056b3;
+}
+
+/* 🔹 ID Picture */
+.id-pic {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 15px auto;
+  max-width: 100%;
+}
+
+/* 🔹 Add Form Button */
+.add-form-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px; /* Position the button at the top */
+  right: 20px; /* Position the button at the right edge */
+  font-size: 16px;
+}
+
+.add-form-button:hover {
+  background-color: #0056b3;
+}
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 768px) {
+  .profile-container {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  .profile-pic {
+    width: 110px;
+    height: 110px;
+  }
+
+  .tab-navigation button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .id-pic {
+    width: 300px;
+  }
+
+  .add-form-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 20px;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tab-navigation {
+    gap: 8px;
+  }
+
+  .tab-navigation button {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .id-pic {
+    width: 250px;
+  }
+
+  .application-button {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .add-form-button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
