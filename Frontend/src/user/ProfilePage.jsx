@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProfilePage.css"; // Import CSS file
-import FirstForm from "./forms/FirstForm";
 
 // ✅ Import images
 import avatar from "../assets/avatar.jpg";
@@ -54,9 +53,7 @@ const ProfilePage = () => {
   // Get the status directly from the user object (from the backend)
   const status = user.status || "Unverified";  
 
-  const handleApplicationClick = () => {
-    navigate("/firstform", { state: { user } }); // Pass user data via navigate state
-  };
+ 
   
 
   return (
@@ -94,7 +91,7 @@ const ProfilePage = () => {
             {status === "Unverified" ? (
               <div>
                 <p>You need to send an application to become verified.</p>
-                <button className="application-button" onClick={handleApplicationClick}>
+                <button className="application-button">
                   Send Application
                 </button>
               </div>

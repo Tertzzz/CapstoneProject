@@ -6,7 +6,6 @@ import Login from "./login/Login";
 import Signup from "./login/Signup";
 import AdminDashboard from "./admin/AdminDashboard";
 import Userui from "./user/Userui";
-import FirstForm from "./user/forms/FirstForm";
 
 function App() {
   return (
@@ -29,7 +28,6 @@ const MainContent = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/userui" element={<Userui />} />
-        <Route path="/firstform" element={<FirstForm />} /> 
       </Routes>
     </>
   );
