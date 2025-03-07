@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./ProfilePage.css"; // Import CSS file
 
 // ✅ Import images
 import avatar from "../assets/avatar.jpg";
-import idPic from "../assets/idpic.png"; // Use exact case for the ID pic
+import idPic from "../assets/idpic.png"; 
 
 const ProfilePage = () => {
-  const [activeTab, setActiveTab] = useState("Details"); // Default to "Details"
-  const [user, setUser] = useState(null); // State for user data
+  const [activeTab, setActiveTab] = useState("Details"); 
+  const [user, setUser] = useState(null); 
   const navigate = useNavigate();
 
-  // Retrieve UserId from localStorage
-  const loggedInUserId = localStorage.getItem("UserId"); // Assuming the logged-in user's UserId is stored in localStorage
+  const loggedInUserId = localStorage.getItem("UserId"); 
   
-  // Fetch user details from the backend
   useEffect(() => {
     const fetchUserDetails = async () => {
       if (!loggedInUserId) {
@@ -53,8 +51,10 @@ const ProfilePage = () => {
   // Get the status directly from the user object (from the backend)
   const status = user.status || "Unverified";  
 
- 
-  
+  // Function to handle navigation to the multi-step form
+  const handleSendApplication = () => {
+    navigate("/form", { state: { userId: loggedInUserId } });
+  };
 
   return (
     <div className="profile-container">
@@ -91,7 +91,7 @@ const ProfilePage = () => {
             {status === "Unverified" ? (
               <div>
                 <p>You need to send an application to become verified.</p>
-                <button className="application-button">
+                <button className="application-button" onClick={handleSendApplication}>
                   Send Application
                 </button>
               </div>

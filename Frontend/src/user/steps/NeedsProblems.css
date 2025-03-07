@@ -1,0 +1,94 @@
+/* Form Styling */
+.needs-form {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 10px;
+    background: #ffffff; /* White background for clarity */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); /* Box shadow for depth */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Title Styling */
+  .needs-title {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Label Styling */
+  .needs-label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+  }
+  
+  /* Input Styling */
+  .needs-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Input Focus Effect */
+  .needs-input:focus {
+    border-color: #16C47F;
+    box-shadow: 0px 0px 5px #13a56c;
+    outline: none;
+  }
+  
+  /* Button Styling */
+  .needs-submit-btn,
+  .needs-back-btn {
+    background: #16C47F;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Button Hover Effect */
+  .needs-submit-btn:hover,
+  .needs-back-btn:hover {
+    background: #13a56c;
+  }
+  
+  /* Error Message Styling */
+  .needs-error {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .needs-form {
+      padding: 20px;
+    }
+  
+    .needs-input {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .needs-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  

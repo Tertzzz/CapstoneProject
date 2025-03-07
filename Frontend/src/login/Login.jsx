@@ -97,7 +97,10 @@ const Login = () => {
             />
           </div>
           <div className="forgot-password">
-            <a href="#">Forgot Password?</a>
+            {/* Use a button instead of anchor for accessibility */}
+            <button type="button" className="forgot-password-btn" onClick={() => { /* Handle forgot password action */ }}>
+              Forgot Password?
+            </button>
           </div>
           <button type="submit" className="login-btn">
             Login

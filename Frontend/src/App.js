@@ -6,6 +6,7 @@ import Login from "./login/Login";
 import Signup from "./login/Signup";
 import AdminDashboard from "./admin/AdminDashboard";
 import Userui from "./user/Userui";
+import MultiStepForm from "./user/MultiStepForm";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
 
 const MainContent = () => {
   const location = useLocation();
-  const hideNavbar = ["/admin-dashboard","/userui","/login","/signup", "/firstform"].includes(location.pathname);
+  const hideNavbar = ["/admin-dashboard","/userui","/login","/signup", "/form"].includes(location.pathname);
 
   return (
     <>
@@ -28,6 +29,7 @@ const MainContent = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/userui" element={<Userui />} />
+        <Route path="/form" element={<MultiStepForm />} />
       </Routes>
     </>
   );

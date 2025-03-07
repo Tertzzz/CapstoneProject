@@ -1,0 +1,269 @@
+/* General form container */
+.ice-form {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Label Styling */
+.ice-form-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+.ice-form-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+.ice-form-input:focus {
+  border-color: #16C47F;
+  box-shadow: 0 0 5px #13a56c;
+  outline: none;
+}
+
+/* Button Styling */
+.ice-form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ice-back-btn, .ice-next-btn {
+  background: #16C47F;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 48%; /* Make buttons side by side */
+  transition: background 0.3s ease-in-out;
+}
+
+.ice-back-btn:hover, .ice-next-btn:hover {
+  background: #13a56c;
+}
+
+/* Error message styling */
+.ice-error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Confirmation and success popups */
+.ice-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Hide by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show popup when active */
+.ice-popup-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Popup Content */
+.ice-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 400px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+}
+
+.ice-popup-overlay.active .ice-popup-content {
+  transform: scale(1);
+}
+
+/* Popup Header */
+.ice-popup-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Success Checkmark */
+.ice-checkmark {
+  font-size: 50px;
+  color: #4CAF50;
+  animation: ice-pop 0.5s ease-in-out;
+}
+/* General Popup Styles */
+.ice-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show popup when active */
+.ice-popup-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Popup Content Styling */
+.ice-popup-content {
+  background: #fff; /* White background for the popup */
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 400px; /* Adjust max-width */
+  gap: 20px; /* Gap between the content elements */
+}
+
+/* Success Popup */
+.ice-success-popup {
+  background: #e7f7e7; /* Light green background for success */
+}
+
+.ice-popup-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333; /* Dark text color for contrast */
+  margin-bottom: 15px;
+}
+
+/* Checkmark Icon */
+.ice-checkmark {
+  font-size: 50px;
+  color: #4CAF50; /* Green checkmark color */
+  animation: ice-pop 0.5s ease-in-out;
+}
+
+/* Popup Button Styling */
+.ice-confirm-btn, .ice-cancel-btn {
+  background: #16C47F;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 5px;
+  width: 45%;
+  transition: background 0.3s ease-in-out;
+}
+.ice-cancel-btn {
+  background: #d83333;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 5px;
+  width: 45%;
+  transition: background 0.3s ease-in-out;
+}
+
+.ice-confirm-btn:hover, .ice-cancel-btn:hover {
+  background: #13a56c; /* Darker green on hover */
+}
+.ice-cancel-btn:hover {
+  background: #a12727; /* Darker green on hover */
+}
+
+/* Success Popup Checkmark and Text */
+.ice-success-popup .ice-checkmark {
+  color: #4CAF50; /* Success green */
+  font-size: 50px;
+  margin-bottom: 15px; /* Add space between the icon and text */
+}
+
+.ice-popup-header {
+  margin-bottom: 15px; /* Add space between header and button */
+}
+
+/* Adjust gap between elements */
+.ice-popup-content > * {
+  margin-bottom: 15px; /* Adds consistent spacing between elements */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .ice-popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .ice-confirm-btn, .ice-cancel-btn {
+    width: 100%;
+  }
+}
+
+
+/* Smooth pop-up effect */
+@keyframes ice-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ice-form {
+    padding: 15px;
+  }
+
+  .ice-form-input {
+    padding: 10px;
+  }
+
+  .ice-form-buttons {
+    flex-direction: column;
+  }
+
+  .ice-back-btn, .ice-next-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .ice-popup-content {
+    width: 90%;
+  }
+}
