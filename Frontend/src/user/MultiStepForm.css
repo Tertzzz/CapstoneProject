@@ -26,21 +26,7 @@
     color: #16C47F; /* ✅ Green */
   }
   
-  /* ✅ Buttons */
-  button {
-    background: #16C47F; /* ✅ Green */
-    color: white;
-    font-size: 16px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background: #128f62; /* Darker green */
-  }
+ 
   
   /* ✅ Form Inputs */
   input, select {

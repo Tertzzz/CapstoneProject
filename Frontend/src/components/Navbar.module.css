@@ -1,6 +1,6 @@
 /* 🔹 Navbar Container */
 .navbar {
-  background-color: #007bff;
+  background-color: #16C47F;
   position: sticky;
   top: 0;
   left: 0;
@@ -31,7 +31,7 @@
 }
 
 .navbar-logo:hover {
-  color: #e0f2fe;
+  color: #0E9B64;
 }
 
 /* 🔹 Navigation Links */
@@ -54,17 +54,17 @@
 }
 
 .nav-link:hover {
-  color: #e0f2fe;
+  background-color: white;
+  color: #0E9B64;
 }
 
-/* 🔹 Default State - No Border */
+/* 🔹 Hamburger Menu */
 .hamburger {
   outline: none;
-  box-shadow: none;
   border: none;
   background: transparent;
   padding: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -72,7 +72,6 @@
   cursor: pointer;
 }
 
-/* 🔹 Hamburger Bars */
 .hamburger div {
   width: 30px;
   height: 3px;
@@ -81,15 +80,6 @@
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* 🔹 Remove Any Border When Clicked */
-.hamburger.open {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  padding: 0;
-}
-
-/* 🔹 Fix Cross Alignment */
 .hamburger.open div:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -101,15 +91,6 @@
 .hamburger.open div:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
-/* 🔹 Remove Focus Outline on Click */
-.hamburger:focus,
-.hamburger:active {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-
 
 /* 🔹 Mobile Navigation */
 @media (max-width: 768px) {
@@ -121,7 +102,7 @@
       top: 60px;
       left: 0;
       width: 100%;
-      background-color: #007bff;
+      background-color: #16C47F;
       padding: 15px 0;
   }
 
@@ -137,7 +118,7 @@
   }
 
   .hamburger {
-      display: flex; /* Show on mobile */
+      display: flex;
   }
 
   .navbar-container {

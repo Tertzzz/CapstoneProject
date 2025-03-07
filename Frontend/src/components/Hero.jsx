@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="hero-content">
         <img src={logo} alt="Solo Parents Welfare Logo" className="hero-logo" />
         <div className="hero-text">
-          <h2>Support for Solo Parents in Santa Maria</h2>
+          <h2 className="herotitle">Support for Solo Parents in Santa Maria</h2>
           <p>Providing assistance and welfare programs for solo parents.</p>
           <div className="hero-buttons">
             {/* ✅ Updated Login button to navigate to /login */}

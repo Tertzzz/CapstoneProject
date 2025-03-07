@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,29 +30,52 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
+    <nav className={styles.navbar}>
+      <div className={styles["navbar-container"]}>
         {/* ✅ Logo */}
-        <Link to="/" className="navbar-logo">
+        <Link to="/" className={styles["navbar-logo"]}>
           Solo Parent Welfare
         </Link>
 
         {/* ✅ Hamburger Button */}
-        <button 
-          className={`hamburger ${menuOpen ? "open" : ""}`} 
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+          <div className={styles.bar}></div>
+          <div className={styles.bar}></div>
+          <div className={styles.bar}></div>
         </button>
 
         {/* ✅ Navigation Menu */}
-        <ul className={`nav-links ${menuOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
-          <li><Link to="/" className="nav-link" onClick={scrollToTop}>Home</Link></li>
-          <li><Link to="/about" className="nav-link" onClick={scrollToAbout}>About</Link></li>
-          <li><Link to="/Contacts" className="nav-link" onClick={scrollToContacts}>Contacts</Link></li>
+        <ul
+          className={`${styles["nav-links"]} ${menuOpen ? styles.open : ""}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <li>
+            <Link to="/" className={styles["nav-link"]} onClick={scrollToTop}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className={styles["nav-link"]}
+              onClick={scrollToAbout}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/Contacts"
+              className={styles["nav-link"]}
+              onClick={scrollToContacts}
+            >
+              Contacts
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

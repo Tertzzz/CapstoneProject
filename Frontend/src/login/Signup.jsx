@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Signup.css";
+import styles from "./Signup.module.css"; // ✅ Import the CSS module
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +48,7 @@ const Signup = () => {
           password: formData.password,
           name: formData.name, // Send the name along with the rest of the data
           role: "user",
-          status: "Unverified"// Default role for new users
+          status: "Unverified" // Default role for new users
         }),
       });
 
@@ -69,11 +69,11 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-box">
+    <div className={styles["signup-container"]}>
+      <div className={styles["signup-box"]}>
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
+          <div className={styles["input-group"]}>
             <label>Name</label> {/* Added name input */}
             <input
               type="text"
@@ -83,7 +83,7 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="input-group">
+          <div className={styles["input-group"]}>
             <label>Email</label>
             <input
               type="email"
@@ -93,7 +93,7 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="input-group">
+          <div className={styles["input-group"]}>
             <label>Password</label>
             <input
               type="password"
@@ -103,7 +103,7 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="input-group">
+          <div className={styles["input-group"]}>
             <label>Confirm Password</label>
             <input
               type="password"
@@ -113,16 +113,16 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
-          {error && <p className="error-message">{error}</p>} {/* ✅ Display error if passwords don't match */}
+          {error && <p className={styles["error-message"]}>{error}</p>} {/* ✅ Display error if passwords don't match */}
           <button
             type="submit"
             disabled={loading || error}
-            className="signup-btn"
+            className={styles["signup-btn"]}
           >
             {loading ? "Creating Account..." : "Create Account"}
           </button>
         </form>
-        <p className="login-text">
+        <p className={styles["login-text"]}>
           Already have an account? <a href="/login">Login</a>
         </p>
       </div>

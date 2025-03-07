@@ -1,4 +1,4 @@
-/* 🔹 Profile Container - Increased Size */
+/* 🔹 Profile Container */
 .profile-container {
   max-width: 800px;
   margin: 30px auto;
@@ -9,25 +9,26 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* 🔹 Profile Header - Increased Profile Picture */
+/* 🔹 Profile Header */
 .profile-header {
   display: flex;
   align-items: center;
   gap: 20px;
   margin-bottom: 25px;
-  position: relative; /* To position the "Add Form" button */
+  position: relative;
 }
 
 .profile-header-left {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .profile-pic {
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  border: 4px solid #007bff;
+  border: 4px solid #16C47F; /* ✅ Updated Border Color */
 }
 
 .profile-header h2 {
@@ -48,14 +49,14 @@
 }
 
 .status.approved {
-  color: green;
+  color: #16C47F; /* ✅ Updated Green */
 }
 
 .status.unverified {
-  color: red;
+  color: #E63946; /* ⚠️ Red for contrast */
 }
 
-/* 🔹 Tab Navigation - Bigger Buttons */
+/* 🔹 Tab Navigation */
 .tab-navigation {
   display: flex;
   gap: 15px;
@@ -79,7 +80,7 @@
 }
 
 .tab-navigation button.active {
-  background: #007bff;
+  background: #16C47F; /* ✅ Updated Active Tab */
   color: white;
   font-size: 19px;
 }
@@ -99,12 +100,12 @@
   border-radius: 6px;
 }
 
-/* 🔹 Send Application Button - Unique Styling */
+/* 🔹 Send Application Button */
 .application-button {
   display: block;
   width: 100%;
   padding: 15px;
-  background: #007bff;
+  background: #16C47F; /* ✅ Updated Button Color */
   color: white;
   border: none;
   border-radius: 8px;
@@ -115,7 +116,7 @@
 }
 
 .application-button:hover {
-  background: #0056b3;
+  background: #0E9B64; /* ✅ Updated Hover */
 }
 
 /* 🔹 ID Picture */
@@ -132,19 +133,19 @@
 /* 🔹 Add Form Button */
 .add-form-button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #16C47F; /* ✅ Updated */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   position: absolute;
-  top: 10px; /* Position the button at the top */
-  right: 20px; /* Position the button at the right edge */
+  top: 10px;
+  right: 20px;
   font-size: 16px;
 }
 
 .add-form-button:hover {
-  background-color: #0056b3;
+  background-color: #0E9B64; /* ✅ Updated Hover */
 }
 
 /* 🔹 Responsive Adjustments */

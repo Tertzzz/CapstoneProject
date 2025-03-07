@@ -1,7 +1,7 @@
 /* Sidebar Default Styles */
 .sidebar {
     width: 260px;
-    background: linear-gradient(135deg, #0056b3, #003b80);
+    background: linear-gradient(135deg, #16C47F, #0E9B64);
     color: white;
     padding: 20px;
     display: flex;
@@ -27,6 +27,7 @@
     margin-bottom: 25px;
     text-align: center;
     letter-spacing: 1px;
+    color: white;
 }
 
 /* Sidebar Menu */
@@ -42,7 +43,7 @@
 .sidebar-menu button {
     width: 100%;
     padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border: none;
     color: white;
     font-size: 1.1rem;
@@ -53,10 +54,11 @@
     font-weight: 600;
 }
 
+/* Hover Effect (Consistent with Theme) */
 .sidebar-menu button:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Toggle Button */
@@ -64,7 +66,7 @@
     position: fixed;
     top: 20px;
     left: 20px;
-    background: #007bff;
+    background: #16C47F;
     color: white;
     border: none;
     padding: 12px 16px;
@@ -79,7 +81,7 @@
 
 /* Toggle Button Hover */
 .sidebar-toggle:hover {
-    background: #0056b3;
+    background: #0E9B64;
     transform: scale(1.1);
 }
 

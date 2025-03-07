@@ -1,6 +1,6 @@
 /* 🔹 User Navbar */
 .user-navbar {
-  background-color: #007bff;
+  background-color: #16C47F; /* Green Theme */
   position: sticky;
   top: 0;
   left: 0;
@@ -31,7 +31,7 @@
 }
 
 .user-navbar .logo:hover {
-  color: #e0f2fe;
+  color: #E6FFF3; /* Lighter green hover effect */
 }
 
 /* 🔹 Navigation Links */
@@ -44,8 +44,8 @@
   padding: 0;
 }
 
-/* 🔹 Navbar Links (Home, About) */
-.nav-links a, .nav-links button {
+.nav-links a,
+.nav-links button {
   text-decoration: none;
   color: white;
   font-size: 1.1rem;
@@ -54,20 +54,40 @@
   border-radius: 5px;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
   display: flex;
-  align-items: center; /* Ensures vertical alignment */
+  align-items: center;
   justify-content: center;
-  height: 40px; /* Makes button and link equal height */
-  box-sizing: border-box;
-  border: none;
-  cursor: pointer;
-  background: none; /* Removes default button styling */
 }
 
 /* 🔹 Hover Effect */
-.nav-links a:hover, .nav-links button:hover {
-  color: #e0f2fe;
-  background: rgba(255, 255, 255, 0.2);
+.nav-links a:hover,
+.nav-links button:hover {
+  color: white;
+  background: #0E9B64; /* Darker green */
 }
+/* 🔹 Notification Bell */
+/* 🔹 Notification Bell */
+.nav-track {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between text & bell */
+  position: relative;
+}
+
+.notif-bell {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.notif-bell:hover {
+  color: #e0f2fe;
+}
+
+
+
 
 /* 🔹 Logout Button (Fixed) */
 .logout-item {
@@ -75,6 +95,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 .logout-item button {
   background: red;
@@ -228,7 +249,6 @@
   transform: translateY(-10px) rotate(-45deg);
 }
 
-/* 🔹 Mobile Navigation */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -238,7 +258,7 @@
     top: 60px;
     left: 0;
     width: 100%;
-    background-color: #007bff;
+    background-color: #16C47F; /* ✅ Green Theme */
     padding: 15px 0;
     gap: 10px;
     transition: all 0.3s ease-in-out;
@@ -264,6 +284,12 @@
     width: 100%;
     padding: 12px 0;
     font-size: 1.1rem;
+    color: white; /* ✅ Ensure readability */
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  .nav-links a:hover {
+    background: #0E9B64; /* ✅ Darker Green Hover */
   }
 
   .hamburger {
@@ -290,6 +316,15 @@
     width: 90%;
     margin: 0 auto;
     padding: 12px 0;
+    background: red;
+    color: white;
+    border: 2px solid red;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .logout-item button:hover {
+    background: darkred;
+    border: 2px solid darkred;
   }
 
   /* 🔹 Fix Hamburger Focus */

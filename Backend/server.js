@@ -74,7 +74,7 @@ app.get('/users', (req, res) => {
 
 // Admin and SuperAdmin routes (unchanged)
 app.get('/admin', (req, res) => {
-  const sql = 'SELECT * FROM users';
+  const sql = 'SELECT * FROM admin';
   db.query(sql, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
@@ -82,7 +82,7 @@ app.get('/admin', (req, res) => {
 });
 
 app.get('/superadmin', (req, res) => {
-  const sql = 'SELECT * FROM users';
+  const sql = 'SELECT * FROM superadmin';
   db.query(sql, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import styles from "./Login.module.css"; // ✅ Import CSS Module
 
 const Login = () => {
   const navigate = useNavigate(); // For redirection
@@ -64,19 +64,18 @@ const Login = () => {
     }
   };
   
-
   // Show loading message until data is fetched
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="login-container">
-      <div className="login-box">
+    <div className={styles["login-container"]}>
+      <div className={styles["login-box"]}>
         <h2>Login</h2>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className={styles["error-message"]}>{error}</p>}
         <form onSubmit={handleLogin}>
-          <div className="input-group">
+          <div className={styles["input-group"]}>
             <label>Email</label>
             <input
               type="email"
@@ -86,7 +85,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="input-group">
+          <div className={styles["input-group"]}>
             <label>Password</label>
             <input
               type="password"
@@ -96,17 +95,16 @@ const Login = () => {
               required
             />
           </div>
-          <div className="forgot-password">
-            {/* Use a button instead of anchor for accessibility */}
-            <button type="button" className="forgot-password-btn" onClick={() => { /* Handle forgot password action */ }}>
+          <div className={styles["forgot-password"]}>
+            <button type="button" className={styles["forgot-password-btn"]} onClick={() => { /* Handle forgot password action */ }}>
               Forgot Password?
             </button>
           </div>
-          <button type="submit" className="login-btn">
+          <button type="submit" className={styles["login-btn"]}>
             Login
           </button>
         </form>
-        <p className="signup-text">
+        <p className={styles["signup-text"]}>
           Don't have an account? <a href="/signup">Sign Up</a>
         </p>
       </div>

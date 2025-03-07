@@ -1,37 +1,15 @@
-/* Animations */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: scale(0.9);
-  }
-  to {
-      opacity: 1;
-      transform: scale(1);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
+/* 🔹 Hero Section */
 .hero {
   width: 100vw;
   max-width: 100%;
-  min-height: 100vh; /* Changed to min-height */
+  min-height: 100vh;
   margin: 0;
   background: url("../assets/hero-bg.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 50px 20px; /* Adjusted padding */
+  padding: 50px 20px;
   position: relative;
   text-align: left;
   overflow: hidden;
@@ -49,13 +27,13 @@
   z-index: 1;
 }
 
-/* Hero Content */
+/* 🔹 Hero Content */
 .hero-content {
   position: relative;
   display: flex;
   align-items: center;
   gap: 50px;
-  padding: 40px; /* Adjusted padding */
+  padding: 40px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border-radius: 15px;
@@ -65,14 +43,14 @@
   max-width: 1200px;
 }
 
-/* Logo */
+/* 🔹 Logo */
 .hero-logo {
   width: 300px;
   height: auto;
   animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Text */
+/* 🔹 Text */
 .hero-text {
   max-width: 550px;
 }
@@ -94,7 +72,7 @@
   animation: fadeInDown 1.4s ease-in-out;
 }
 
-/* Buttons */
+/* 🔹 Buttons */
 .hero-buttons {
   margin-top: 25px;
   display: flex;
@@ -113,61 +91,94 @@
   animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Get Started Button */
-.hero-buttons .get-started {
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  color: white;
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
-  transition: all 0.3s ease;
-}
-
-/* Login Button */
+/* ✅ Login Button */
 .hero-buttons .login-hero {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: #16C47F;
   color: white;
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(22, 196, 127, 0.4);
   transition: all 0.3s ease;
-  padding: 14px 50px; /* ✅ Increased padding for better length */
-  min-width: 170px; /* ✅ Ensures button does not shrink too much */
+  padding: 14px 50px;
+  min-width: 170px;
   text-align: center;
 }
 
-.hero-buttons .login-hero:hover {
-  background: linear-gradient(135deg, #0056b3, #004085);
-  transform: scale(1.07);
-  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+/* ✅ Login Button - Green Gradient */
+.hero-buttons .login-hero {
+  background: linear-gradient(135deg, #16C47F 0%, #0E9B64 100%);
+  color: white;
+  box-shadow: 0 8px 20px rgba(22, 196, 127, 0.4);
+  transition: all 0.3s ease;
+  padding: 14px 50px;
+  min-width: 170px;
+  text-align: center;
+  border: none;
 }
 
+.hero-buttons .login-hero:hover {
+  background: linear-gradient(135deg, #0E9B64 0%, #16C47F 100%);
+  transform: scale(1.07);
+  box-shadow: 0 10px 30px rgba(14, 155, 100, 0.6);
+}
 
-/* Learn More Button */
+/* ✅ Learn More Button - White Gradient with Border */
 .hero-buttons .learn-more {
-  background: linear-gradient(135deg, #ffffff, #e0e0e0);
-  color: #007bff;
-  border: 2px solid #007bff;
+  background: linear-gradient(135deg, white 0%, #f0f0f0 100%);
+  color: #16C47F;
+  border: 2px solid #16C47F;
   transition: all 0.3s ease;
 }
 
 .hero-buttons .learn-more:hover {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: linear-gradient(135deg, #16C47F 0%, #0E9B64 100%);
+  color: white;
+  border-color: #0E9B64;
+  transform: scale(1.07);
+}
+
+.hero .herotitle {
+  color: white; /* Ensures it only applies within Hero */
+}
+
+
+/* ✅ Learn More Button */
+.hero-buttons .learn-more {
+  background: white;
+  color: #16C47F;
+  border: 2px solid #16C47F;
+  transition: all 0.3s ease;
+}
+
+.hero-buttons .learn-more:hover {
+  background: #16C47F;
   color: white;
   transform: scale(1.07);
 }
 
-/* 🔥 RESPONSIVE DESIGN */
+/* 🔥 Responsive Design */
 @media (max-width: 1024px) {
   .hero {
       padding: 80px 30px;
-      min-height: 80vh; /* Adjusted min-height */
+      min-height: 80vh;
   }
 
   .hero-content {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 30px; /* Adjusted padding */
+      padding: 30px;
       gap: 30px;
   }
-
+  .herotitle {
+    color: white; /* Ensures the title remains visible */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1.2s ease-in-out;
+  }
+  
   .hero-logo {
       width: 150px;
   }
@@ -192,13 +203,13 @@
 
 @media (max-width: 768px) {
   .hero {
-      min-height: 70vh; /* Adjusted min-height */
+      min-height: 70vh;
   }
 
   .hero-content {
-      padding: 25px; /* Adjusted padding */
-      width: 95%; /* Increased width */
-      gap: 25px; /* Adjusted gap */
+      padding: 25px;
+      width: 95%;
+      gap: 25px;
   }
 
   .hero-logo {
@@ -216,8 +227,8 @@
 
 @media (max-width: 480px) {
   .hero {
-      min-height: 65vh; /* Adjusted min-height */
-      padding: 40px 15px; /* Adjusted padding */
+      min-height: 65vh;
+      padding: 40px 15px;
   }
 
   .hero-content {
@@ -239,7 +250,7 @@
   }
 
   .hero-buttons {
-      gap: 10px; /* Reduced gap */
+      gap: 10px;
   }
 
   .hero-buttons button {

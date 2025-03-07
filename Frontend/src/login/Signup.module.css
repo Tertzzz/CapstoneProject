@@ -1,14 +1,12 @@
-/* 🔹 Fullscreen Centered Container */
 .signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
-    padding: 20px; /* Prevents tight edges on small screens */
+    background: linear-gradient(135deg, #16C47F, #0E9B64);
+    padding: 20px;
 }
 
-/* 🔹 Signup Box */
 .signup-box {
     background: white;
     padding: 3rem;
@@ -21,30 +19,15 @@
     overflow: hidden;
 }
 
-/* 🔹 Decorative Accent */
-.signup-box::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 80px;
-    height: 80px;
-    background: #007bff;
-    border-radius: 50%;
-    opacity: 0.1;
-}
-
-/* 🔹 Title */
-.signup-box h2 {
+h2 {
     margin-bottom: 1.5rem;
     color: #333;
     font-size: 2rem;
     font-weight: 700;
 }
 
-/* 🔹 Input Groups */
 .input-group {
-    margin-bottom: 1.5rem; /* More space between fields */
+    margin-bottom: 1.5rem;
     text-align: left;
 }
 
@@ -65,12 +48,11 @@
 }
 
 .input-group input:focus {
-    border-color: #007bff;
+    border-color: #16C47F;
     outline: none;
-    box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
+    box-shadow: 0px 0px 6px rgba(22, 196, 127, 0.5);
 }
 
-/* 🔹 Error Message */
 .error-message {
     color: red;
     font-size: 14px;
@@ -78,11 +60,10 @@
     text-align: left;
 }
 
-/* 🔹 Signup Button */
 .signup-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #007bff, #0056b3); /* Greenish shade */
+    background: linear-gradient(135deg, #16C47F, #0E9B64);
     color: white;
     border: none;
     border-radius: 8px;
@@ -94,25 +75,22 @@
 
 .signup-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0px 4px 12px #0056b3;
+    box-shadow: 0px 4px 12px rgba(14, 155, 100, 0.5);
 }
 
-
-/* 🔹 Disabled Button (if passwords don’t match) */
 .signup-btn:disabled {
     background: gray;
     cursor: not-allowed;
     transform: none;
 }
 
-/* 🔹 Login Redirect Text */
 .login-text {
-    margin-top: 1.5rem; /* More space above text */
+    margin-top: 1.5rem;
     font-size: 15px;
 }
 
 .login-text a {
-    color: #007bff;
+    color: #16C47F;
     text-decoration: none;
     font-weight: 600;
 }
@@ -121,7 +99,6 @@
     text-decoration: underline;
 }
 
-/* 🔹 Responsive Design */
 @media (max-width: 480px) {
     .signup-box {
         padding: 2rem;
@@ -129,7 +106,7 @@
         max-width: 90%;
     }
 
-    .signup-box h2 {
+    h2 {
         font-size: 1.7rem;
     }
 
@@ -138,7 +115,7 @@
         font-size: 14px;
     }
 
-    button {
+    .signup-btn {
         padding: 12px;
         font-size: 14px;
     }
