@@ -13,127 +13,203 @@ const db = mysql.createConnection({
   database: 'soloparent',
 });
 
-const queryDatabase = (sql, params) => new Promise((resolve, reject) => {
-  db.query(sql, params, (err, result) => {
-    if (err) return reject(err);
-    resolve(result);
+db.connect((err) => {
+  if (err) {
+    console.error('Database connection failed:', err);
+    return;
+  }
+  console.log('Connected to MySQL database');
+});
+
+// Handle SuperAdmin login
+app.post('/superadmin-login', async (req, res) => {
+  const { email, password } = req.body;
+  
+  if (!email || !password) {
+    return res.status(400).json({ 
+      success: false,
+      error: 'Please provide both email and password' 
+    });
+  }
+
+  try {
+    const query = 'SELECT * FROM superadmin WHERE email = ? AND password = ?';
+    db.query(query, [email, password], (err, results) => {
+      if (err) {
+        console.error('Login error:', err);
+        return res.status(500).json({ 
+          success: false,
+          error: 'Internal server error' 
+        });
+      }
+
+      if (results.length === 0) {
+        return res.status(401).json({ 
+          success: false,
+          error: 'Invalid SuperAdmin credentials' 
+        });
+      }
+
+      const superadmin = results[0];
+      const userData = {
+        id: superadmin.id,
+        email: superadmin.email,
+        role: 'superadmin',
+        timestamp: new Date().getTime()
+      };
+
+      res.json({
+        success: true,
+        user: userData
+      });
+    });
+  } catch (error) {
+    console.error('Server error:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Internal server error' 
+    });
+  }
+});
+
+// Regular login endpoint
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ 
+      success: false,
+      error: 'Please provide both email and password' 
+    });
+  }
+
+  try {
+    // First check users table
+    db.query('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], (err, userResults) => {
+      if (err) {
+        console.error('Login error:', err);
+        return res.status(500).json({ 
+          success: false,
+          error: 'Internal server error' 
+        });
+      }
+
+      if (userResults.length > 0) {
+        const user = userResults[0];
+        return res.json({
+          success: true,
+          user: {
+            id: user.id,
+            email: user.email,
+            role: 'user',
+            name: user.name,
+            timestamp: new Date().getTime()
+          }
+        });
+      }
+
+      // Then check admin table
+      db.query('SELECT * FROM admin WHERE email = ? AND password = ?', [email, password], (err, adminResults) => {
+        if (err) {
+          console.error('Login error:', err);
+          return res.status(500).json({ 
+            success: false,
+            error: 'Internal server error' 
+          });
+        }
+
+        if (adminResults.length > 0) {
+          const admin = adminResults[0];
+          return res.json({
+            success: true,
+            user: {
+              id: admin.id,
+              email: admin.email,
+              role: 'admin',
+              name: admin.name,
+              timestamp: new Date().getTime()
+            }
+          });
+        }
+
+        // No user found
+        res.status(401).json({ 
+          success: false,
+          error: 'Invalid email or password' 
+        });
+      });
+    });
+  } catch (error) {
+    console.error('Server error:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Internal server error' 
+    });
+  }
+});
+
+// Get SuperAdmin data
+app.get('/superadmin', (req, res) => {
+  const query = 'SELECT id, email, role, created_at FROM superadmin';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching superadmin data:', err);
+      return res.status(500).json({ 
+        success: false,
+        error: 'Error fetching superadmin data' 
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: results
+    });
   });
 });
 
-app.post('/users', async (req, res) => {
-  const { email, password, name, role, status } = req.body;
-  try {
-    await queryDatabase('INSERT INTO users (email, password, name, role, status) VALUES (?, ?, ?, ?, ?)', 
-      [email, password, name, role, status]);
-    res.status(201).json({ message: 'User created successfully' });
-  } catch (err) {
-    res.status(500).json({ error: 'Error inserting user into database' });
-  }
-});
-
-app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const results = await queryDatabase('SELECT * FROM users WHERE email = ? AND password = ?', [email, password]);
-    if (results.length > 0) {
-      res.status(200).json({ user: results[0] }); 
-    } else {
-      res.status(401).json({ error: 'Invalid email or password' });
+// Get users data
+app.get('/users', (req, res) => {
+  const query = 'SELECT id, email, name, role, status FROM users';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching users:', err);
+      return res.status(500).json({ 
+        success: false,
+        error: 'Error fetching users' 
+      });
     }
-  } catch (err) {
-    res.status(500).json({ error: 'Database error' });
-  }
+    
+    res.json({
+      success: true,
+      data: results
+    });
+  });
 });
 
-app.post('/getUserDetails', async (req, res) => {
-  const { userId } = req.body;
-  try {
-    const results = await queryDatabase('SELECT * FROM users WHERE id = ?', [userId]);
-    if (results.length > 0) {
-      res.status(200).json(results[0]); 
-    } else {
-      res.status(404).json({ error: 'User not found' });
+// Get admin data
+app.get('/admin', (req, res) => {
+  const query = 'SELECT id, email, role FROM admin';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching admin data:', err);
+      return res.status(500).json({ 
+        success: false,
+        error: 'Error fetching admin data' 
+      });
     }
-  } catch (err) {
-    res.status(500).json({ error: 'Error fetching user details' });
-  }
+    
+    res.json({
+      success: true,
+      data: results
+    });
+  });
 });
 
-app.get('/users', async (req, res) => {
-  try {
-    const users = await queryDatabase('SELECT * FROM users');
-    res.json(users);
-  } catch (err) {
-    res.status(500).json({ error: 'Error fetching users' });
-  }
-});
-
-app.get('/admin', async (req, res) => {
-  try {
-    const adminData = await queryDatabase('SELECT * FROM admin');
-    res.json(adminData);
-  } catch (err) {
-    res.status(500).json({ error: 'Error fetching admin data' });
-  }
-});
-
-app.get('/superadmin', async (req, res) => {
-  try {
-    const superadminData = await queryDatabase('SELECT * FROM superadmin');
-    res.json(superadminData);
-  } catch (err) {
-    res.status(500).json({ error: 'Error fetching superadmin data' });
-  }
-});
-
-app.post('/userDetailsStep1', async (req, res) => {
-  const {
-    userId, firstName, middleName, lastName, age, gender, dateOfBirth,
-    placeOfBirth, address, education, civilStatus, occupation, religion,
-    company, income, employmentStatus, contactNumber, email, pantawidBeneficiary,
-    indigenous
-  } = req.body;
-
-  const createDate = new Date();
-  const year = createDate.getFullYear();
-  const month = (createDate.getMonth() + 1).toString().padStart(2, '0');  // Format month as 2 digits
-
-  try {
-    // Get the highest codeId for the current month
-    const result = await queryDatabase(`
-      SELECT codeId FROM user_details_step1 
-      WHERE codeId LIKE ? 
-      ORDER BY codeId DESC LIMIT 1
-    `, [`${year}-${month}-%`]);
-
-    // Generate the new codeId based on a random number (6 digits)
-    let newId = Math.floor(Math.random() * 1000000); // Random number between 0 and 999999
-    newId = newId.toString().padStart(6, '0'); // Pad with leading zeros if necessary
-
-    const codeId = `${year}-${month}-${newId}`;
-
-    // Insert the new record with the generated `codeId`
-    await queryDatabase(`
-      INSERT INTO user_details_step1 (
-        userId, firstName, middleName, lastName, age, gender, dateOfBirth,
-        placeOfBirth, address, education, civilStatus, occupation, religion,
-        company, income, employmentStatus, contactNumber, email, pantawidBeneficiary,
-        indigenous, codeId
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `, [
-      userId, firstName, middleName, lastName, age, gender, dateOfBirth,
-      placeOfBirth, address, education, civilStatus, occupation, religion,
-      company, income, employmentStatus, contactNumber, email, pantawidBeneficiary,
-      indigenous, codeId
-    ]);
-
-    res.status(201).json({ message: 'Data inserted successfully with random codeId value' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Error inserting data into user_details_step1' });
-  }
-});
-
-app.listen(8081, () => {
-  console.log('Server is listening on port 8081');
+// Start server
+const PORT = 8081;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
