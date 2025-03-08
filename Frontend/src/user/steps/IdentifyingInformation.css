@@ -1,5 +1,7 @@
+@import './shared.css';
+
 /* Form Styling */
-.identifying-form {
+.identifying-form.step-form {
   max-width: 700px;
   margin: 20px auto;
   padding: 25px;
@@ -12,7 +14,7 @@
 }
 
 /* Header Styling */
-.identifying-header {
+.identifying-header.step-header {
   font-size: 24px;
   text-align: center;
   color: #333;
@@ -20,7 +22,7 @@
 }
 
 /* Label Styling */
-.identifying-label {
+.identifying-label.step-label {
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 5px;
@@ -29,7 +31,7 @@
 }
 
 /* Input & Select Styling */
-.identifying-input {
+.identifying-input.step-input {
   width: 100%;
   padding: 12px;
   border: 2px solid #ccc;
@@ -40,32 +42,32 @@
 }
 
 /* Input Focus Effect */
-.identifying-input:focus {
+.identifying-input.step-input:focus {
   border-color: #16C47F;
   box-shadow: 0px 0px 5px #13a56c;
   outline: none;
 }
 
 /* Grouped Fields (Side by Side) */
-.identifying-row {
+.identifying-row.step-row {
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
 
-.identifying-row > div {
+.identifying-row.step-row > div {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 /* Input Height */
-.identifying-input {
+.identifying-input.step-input {
   height: 45px;
 }
 
 /* Submit & Button Styling */
-.identifying-next-btn {
+.identifying-next-btn.step-button {
   background: #16C47F;
   color: white;
   font-size: 16px;
@@ -80,22 +82,22 @@
 }
 
 /* Button Hover Effect */
-.identifying-next-btn:hover {
+.identifying-next-btn.step-button:hover {
   background: #13a56c;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .identifying-row {
+  .identifying-row.step-row {
     flex-direction: column;
     gap: 15px;
   }
 
-  .identifying-form {
+  .identifying-form.step-form {
     padding: 20px;
   }
 
-  .identifying-input {
+  .identifying-input.step-input {
     font-size: 14px;
     padding: 10px;
   }

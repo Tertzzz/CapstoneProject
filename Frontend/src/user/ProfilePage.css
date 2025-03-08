@@ -1,210 +1,382 @@
 /* 🔹 Profile Container */
 .profile-container {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 30px;
-  background: rgb(245, 242, 242);
-  border-radius: 15px;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease-in-out;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
 }
 
 /* 🔹 Profile Header */
 .profile-header {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 25px;
-  position: relative;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
-.profile-header-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.profile-picture-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
 .profile-pic {
-  width: 130px;
-  height: 130px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #16C47F; /* ✅ Updated Border Color */
+  border: 4px solid #16C47F;
+  transition: all 0.3s ease;
 }
 
-.profile-header h2 {
-  margin: 0;
-  font-size: 24px;
+.upload-button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: #16C47F;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
-.profile-header p {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #555;
+.upload-button:hover {
+  background: #14b374;
+  transform: scale(1.1);
 }
 
-/* 🔹 Status */
-.status {
-  font-weight: bold;
-  font-size: 16px;
+.profile-info {
+  flex: 1;
 }
 
-.status.approved {
-  color: #16C47F; /* ✅ Updated Green */
+.profile-info h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
-.status.unverified {
-  color: #E63946; /* ⚠️ Red for contrast */
+.email {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #f8f9fa;
+}
+
+.status-icon {
+  font-size: 1.2rem;
+}
+
+.status-icon.verified {
+  color: #16C47F;
+}
+
+.status-icon.pending {
+  color: #ffc107;
+}
+
+.status-icon.unverified {
+  color: #dc3545;
 }
 
 /* 🔹 Tab Navigation */
 .tab-navigation {
   display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-  border-bottom: 3px solid #ddd;
-  padding-bottom: 8px;
-  justify-content: space-around;
+  border-bottom: 1px solid #eee;
+  background: #f8f9fa;
 }
 
-.tab-navigation button {
-  flex: 1;
-  background: none;
+.tab-button {
+  padding: 1rem 2rem;
   border: none;
-  font-size: 18px;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
   cursor: pointer;
-  padding: 12px 20px;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  font-weight: bold;
-  color: #555;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.tab-navigation button.active {
-  background: #16C47F; /* ✅ Updated Active Tab */
-  color: white;
-  font-size: 19px;
+.tab-button:hover {
+  color: #16C47F;
+}
+
+.tab-button.active {
+  color: #16C47F;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #16C47F;
 }
 
 /* 🔹 Tab Content */
-.tab-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.tab-content {
+  padding: 2rem;
 }
 
-.tab-content li {
-  background: #f8f9fa;
-  padding: 12px;
-  font-size: 17px;
-  margin: 8px 0;
-  border-radius: 6px;
+.verification-prompt {
+  text-align: center;
+  padding: 3rem 2rem;
 }
 
-/* 🔹 Send Application Button */
-.application-button {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  background: #16C47F; /* ✅ Updated Button Color */
+.verification-prompt h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.verification-prompt p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.verify-button {
+  background: #16C47F;
   color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.verify-button:hover {
+  background: #14b374;
+  transform: translateY(-2px);
+}
+
+.details-list, .benefits-list {
+  padding: 1rem 0;
+}
+
+.details-list h3, .benefits-list h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.document-item, .benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.document-icon, .benefit-icon {
+  color: #16C47F;
+}
+
+.id-card {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.id-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.no-id {
+  text-align: center;
+  padding: 3rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  color: #666;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.preview-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #16C47F;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.upload-photo-btn, .save-photo-btn {
+  width: 100%;
+  padding: 0.8rem;
   border: none;
   border-radius: 8px;
-  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 25px;
-  transition: background 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
-.application-button:hover {
-  background: #0E9B64; /* ✅ Updated Hover */
-}
-
-/* 🔹 ID Picture */
-.id-pic {
-  width: 400px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-  margin: 15px auto;
-  max-width: 100%;
-}
-
-/* 🔹 Add Form Button */
-.add-form-button {
-  padding: 10px 20px;
-  background-color: #16C47F; /* ✅ Updated */
+.upload-photo-btn {
+  background: #16C47F;
   color: white;
+}
+
+.save-photo-btn {
+  background: #14b374;
+  color: white;
+}
+
+.save-photo-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  width: 100%;
+  padding: 0.8rem;
   border: none;
-  border-radius: 5px;
+  background: none;
+  color: #666;
+  font-weight: 600;
   cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 16px;
 }
 
-.add-form-button:hover {
-  background-color: #0E9B64; /* ✅ Updated Hover */
+.cancel-btn:hover {
+  color: #333;
 }
 
-/* 🔹 Responsive Adjustments */
+/* Loading Animation */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #16C47F;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .profile-container {
-    max-width: 90%;
-    padding: 25px;
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .profile-pic {
-    width: 110px;
-    height: 110px;
+  .profile-info {
+    text-align: center;
   }
 
-  .tab-navigation button {
-    font-size: 16px;
-    padding: 10px;
+  .tab-button {
+    padding: 1rem;
   }
 
-  .id-pic {
-    width: 300px;
-  }
-
-  .add-form-button {
-    font-size: 14px;
-    padding: 8px 16px;
+  .document-item, .benefit-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .profile-container {
-    padding: 20px;
+    margin: 1rem auto;
+    padding: 0 1rem;
   }
 
-  .profile-pic {
-    width: 100px;
-    height: 100px;
+  .profile-header {
+    padding: 1.5rem;
+  }
+
+  .profile-picture-container {
+    width: 120px;
+    height: 120px;
   }
 
   .tab-navigation {
-    gap: 8px;
+    flex-wrap: wrap;
   }
 
-  .tab-navigation button {
-    font-size: 15px;
-    padding: 8px;
+  .tab-button {
+    flex: 1;
+    min-width: 33.333%;
+    font-size: 0.9rem;
   }
 
-  .id-pic {
-    width: 250px;
-  }
-
-  .application-button {
-    font-size: 16px;
-    padding: 12px;
-  }
-
-  .add-form-button {
-    font-size: 14px;
-    padding: 6px 12px;
+  .tab-content {
+    padding: 1.5rem;
   }
 }

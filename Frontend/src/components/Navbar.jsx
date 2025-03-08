@@ -32,12 +32,12 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles["navbar-container"]}>
-        {/* ✅ Logo */}
+        {/* Logo */}
         <Link to="/" className={styles["navbar-logo"]}>
           Solo Parent Welfare
         </Link>
 
-        {/* ✅ Hamburger Button */}
+        {/* Hamburger Button */}
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className={styles.bar}></div>
         </button>
 
-        {/* ✅ Navigation Menu */}
+        {/* Navigation Menu */}
         <ul
           className={`${styles["nav-links"]} ${menuOpen ? styles.open : ""}`}
           onClick={(e) => e.stopPropagation()}
@@ -69,11 +69,16 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/Contacts"
+              to="/contacts"
               className={styles["nav-link"]}
               onClick={scrollToContacts}
             >
               Contacts
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className={`${styles["nav-link"]} ${styles["login-btn"]}`}>
+              Login
             </Link>
           </li>
         </ul>

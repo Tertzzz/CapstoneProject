@@ -1,5 +1,6 @@
 import React from "react";
-import Hero from "../components/Hero"; // ✅ Fix: Correct import path
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero"; 
 import Announcements from "../components/Announcements";
 import About from "../components/About";
 import Contacts from "../components/Contacts";
@@ -8,6 +9,7 @@ import Contacts from "../components/Contacts";
 const MainPage = () => {
   return (
     <>
+      <Navbar />
       <Hero />
       <Announcements />
       <About />

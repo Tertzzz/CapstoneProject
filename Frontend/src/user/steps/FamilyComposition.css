@@ -1,14 +1,16 @@
-.family-form {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 10px;
-    background: #f9f9f9;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Increased spacing between sections */
-    animation: fadeIn 0.5s ease-in-out;
+@import './shared.css';
+
+.family-form.step-form {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Section Titles */
@@ -18,47 +20,72 @@ h3, h4, h5 {
     color: #333;
 }
 
+h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 /* Label Styling */
-.form-label {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
+.form-label.step-label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
 }
 
 /* Input Fields */
-.form-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease-in-out;
+.form-input.step-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
 }
 
-.form-input:focus {
+.form-input.step-input:focus {
     border-color: #16C47F;
     outline: none;
 }
 
+.form-input.step-input.error {
+  border-color: #f44336;
+  background-color: #fff8f8;
+}
+
 /* Child Form Container */
 .child-form {
-    padding: 20px;
-    border-radius: 8px;
-    background: #f1f1f1;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* More spacing between inputs */
-    animation: slideIn 0.5s ease-in-out;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.child-form h4 {
+  color: #333;
+  margin: 0 0 15px 0;
+  font-size: 16px;
+}
+
+.child-form h5 {
+  color: #666;
+  margin: 10px 0;
+  font-size: 14px;
 }
 
 /* Align Name Inputs Side-by-Side */
-.name-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px; /* Adjusted spacing */
+.name-row.step-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .name-row .form-input {
@@ -67,73 +94,64 @@ h3, h4, h5 {
 
 /* Buttons */
 .form-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Increased spacing between buttons */
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-.back-btn, .next-btn {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+.back-btn.step-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  background: #ccc;
+  color: #333;
 }
 
-.back-btn {
-    background: #ccc;
-    color: #333;
-}
-
-.back-btn:hover {
+.back-btn.step-button:hover {
     background: #b3b3b3;
 }
 
-.next-btn {
-    background: #16C47F;
-    color: white;
+.next-btn.step-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  background: #16C47F;
+  color: white;
 }
 
-.next-btn:hover {
-    background: #13a56c;
+.next-btn.step-button:hover {
+    background: #14b374;
 }
 
 /* Error Styling */
-.error {
-    border: 2px solid red;
-    background-color: #ffe6e6;
+.error-message.step-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Fade-in Animation */
+/* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Slide-in Animation */
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
